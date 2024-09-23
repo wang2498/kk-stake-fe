@@ -21,7 +21,7 @@ const Home = () => {
   const handleStake = async () => {
     if (!stakeContract || !data) return
     try {
-      const tx = stakeContract.write.dispositETH([], { value: parseUnits(amount, 18) })
+      const tx = stakeContract.write.depositETH([], { value: parseUnits(amount, 18) })
       console.log(tx, '-----tx')
       const res = await waitForTransactionReceipt(data, { hash: tx })
       console.log(res, '-----res')
@@ -35,7 +35,8 @@ const Home = () => {
   }
   const getStakeAmount = async () => {
     if (address && stakeContract) {
-      const res = await stakeContract.read.stakingBbalance([Pid, address])
+      const res = await stakeContract.read.stakingBalance([Pid, address])
+      console.log(res,'--res--')
       setStakedAmount(formatUnits(res as bigint, 18))
     }
   }
@@ -43,7 +44,8 @@ const Home = () => {
     console.log(data, address, isConnected, '-----')
   }, [data, address, isConnected])
   useEffect(() => {
-    if (stakeContract && address) {
+    console.log(stakeContract,address,'-s-s-s-')
+    if(stakeContract && address) {
       getStakeAmount()
     }
   }, [stakeContract, address])

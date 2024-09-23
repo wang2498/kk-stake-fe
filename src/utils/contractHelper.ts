@@ -1,5 +1,5 @@
 import { getContract as viemGetContract, Address, Abi, PublicClient, GetContractReturnType, WalletClient } from 'viem'
-import { defaultChainId } from 'wagmi'
+import { defaultChainId } from './wagmi'
 import { viemClients } from './viem'
 
 export const getContract = <TAbi extends Abi | readonly unknown[], TWalletClient extends WalletClient>({

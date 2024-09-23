@@ -1,7 +1,7 @@
 import { PublicClient, createPublicClient, createWalletClient, http, custom } from 'viem'
 import { sepolia } from 'viem/chains'
 
-export const viemClient = (chainId: number): PublicClient => {
+export const viemClients = (chainId: number): PublicClient => {
   const clients: {
     [key: number]: PublicClient
   } = {

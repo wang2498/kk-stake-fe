@@ -3,7 +3,7 @@ import { Abi, Address } from 'viem'
 import { useChainId, useWalletClient } from 'wagmi'
 import { StakeContractAddress } from '../utils/env'
 import { getContract } from '../utils/contractHelper'
-import stakeAbi from '../assets/stake.ts'
+import { stakeAbi } from '../assets/stake.ts'
 import {} from 'viem'
 
 type UseContractOptions = {
