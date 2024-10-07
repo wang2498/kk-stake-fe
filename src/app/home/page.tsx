@@ -36,16 +36,12 @@ const Home = () => {
   const getStakeAmount = async () => {
     if (address && stakeContract) {
       const res = await stakeContract.read.stakingBalance([Pid, address])
-      console.log(res,'--res--')
+      // console.log(res, '--res--')
       setStakedAmount(formatUnits(res as bigint, 18))
     }
   }
   useEffect(() => {
-    console.log(data, address, isConnected, '-----')
-  }, [data, address, isConnected])
-  useEffect(() => {
-    console.log(stakeContract,address,'-s-s-s-')
-    if(stakeContract && address) {
+    if (stakeContract && address) {
       getStakeAmount()
     }
   }, [stakeContract, address])
